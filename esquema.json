@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "User Story Schema",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Version": {
+      "type": "string",
+      "pattern": "^[0-9]+(\.[0-9]+)*$"
+    },
+    "Author": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Story Type": {
+      "type": "string",
+      "enum": ["Epic", "Task", "User Story", "Poc"]
+    },
+    "Associated Child Story IDs": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "Associated Parent Story IDs": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "Summary": {
+      "type": "object",
+      "properties": {
+        "As a": {
+          "type": "string",
+          "minLength": 1
+        },
+        "I want to": {
+          "type": "string",
+          "minLength": 1
+        },
+        "So that": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "As a",
+        "I want to",
+        "So that"
+      ]
+    },
+    "Description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Acceptance Criteria": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "Tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "Assigned Responsible IDs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "email"
+      }
+    },
+    "Start Date": {
+      "type": "string",
+      "format": "date"
+    },
+    "End Date": {
+      "type": "string",
+      "format": "date"
+    },
+    "Board Column Name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Board ID": {
+      "type": "integer"
+    },
+    "Project ID": {
+      "type": "integer"
+    },
+    "Card ID": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "Name",
+    "Version",
+    "Author",
+    "Story Type",
+    "Summary",
+    "Description",
+    "Acceptance Criteria"
+  ]
+}

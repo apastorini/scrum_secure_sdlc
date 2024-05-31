@@ -1,0 +1,602 @@
+[
+    {
+        "Name": "Historia 1",
+        "ID de la Historia": 1,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Los datos se segregan por inquilino. Los administradores y usuarios deben estar separados por rol para evitar la divulgación o modificación no autorizada. La información de identificación personal (datos RESTRINGIDOS de la empresa de software) debe estar cifrada en reposo y en tránsito por redes públicas.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "mis datos deben estar protegidos contra la divulgación no intencional a otros clientes o terceros.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 2",
+        "ID de la Historia": 2,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Verificar que los campos de ingreso de contraseña permiten, o fomentan, el uso de frases secretas, frases de paso largas o contraseñas altamente complejas. Verificar que existan medidas para bloquear el uso de contraseñas comúnmente elegidas y frases secretas débiles.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "necesito que la aplicación permita frases secretas y/o contraseñas complejas.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 3",
+        "ID de la Historia": 3,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Verificar que todas las conexiones a aplicaciones que contienen información o funciones del cliente estén autenticadas.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "necesito que todas las conexiones a una aplicación que contenga mis datos de usuario estén autenticadas.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 4",
+        "ID de la Historia": 4,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Verificar que la contraseña y otros campos de ingreso de datos que contienen información RESTRINGIDA no se almacenen en caché ni permitan el autocompletado. Se puede hacer una excepción para los administradores de contraseñas.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "necesito que el ingreso de contraseña y otros campos que contienen información sensible no permitan el almacenamiento en caché ni el autocompletado.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 5",
+        "ID de la Historia": 5,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Verificar que todas las funciones de autenticación de identidad de la cuenta (como actualizar perfil, contraseña olvidada, token deshabilitado/perdido, mesa de ayuda o IVR) que podrían recuperar el acceso a la cuenta sean al menos tan resistentes a ataques como el mecanismo de autenticación principal. Como mínimo, verificar que la funcionalidad de cambio de contraseña incluya la contraseña anterior, la nueva contraseña y una confirmación de la contraseña. Verificar que la función de contraseña olvidada y otros mecanismos de recuperación no revelen la contraseña actual y que la nueva contraseña no se envíe en texto claro al usuario. Verificar que la contraseña olvidada y otras rutas de recuperación utilicen un TOTP u otro token software, push móvil u otro mecanismo de recuperación sin conexión. El uso de un valor aleatorio en un correo electrónico o SMS debe ser un último recurso.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "necesito la capacidad de cambiar o restablecer mi contraseña de forma segura sin preocuparme de que mis cuentas puedan ser secuestradas por un tercero malicioso.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 6",
+        "ID de la Historia": 6,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Verificar que las contraseñas de las cuentas estén hash unidireccional con un salt, y que haya suficiente factor de trabajo para derrotar ataques de fuerza bruta y recuperación de hash de contraseña. Verificar que las credenciales se transportan utilizando un enlace cifrado adecuado y que todas las páginas/funciones que requieren que un usuario ingrese credenciales se hagan utilizando un enlace cifrado.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que mis credenciales de cuenta se creen",
+            "Entonces": "almacenen y transporten de forma segura para que no puedan ser adivinadas"
+        }
+    },
+    {
+        "Name": "Historia 7",
+        "ID de la Historia": 7,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Los usuarios pueden autenticarse mediante autenticación de dos factores u otra autenticación fuerte, o cualquier esquema similar que brinde protección contra la divulgación del nombre de usuario y la contraseña. Verificar que la re-autenticación basada en riesgos, el factor doble o la firma de transacciones estén implementados para transacciones de alto valor.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "necesito un factor adicional de autenticación para proteger mis cuentas del acceso no autorizado. Quiero una autenticación por pasos para transacciones y cambios riesgosos en las cuentas.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 8",
+        "ID de la Historia": 8,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Las sesiones se invalidan cuando el usuario cierra la sesión. Verificar que las sesiones expiren después de un período específico de inactividad o después de un período máximo configurable administrativamente independientemente de la actividad (un tiempo de espera absoluto).",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero una función de cierre de sesión de usuario. Necesito que las sesiones de usuario se desactiven después del cierre de sesión y se agoten después de la inactividad o un límite de tiempo establecido por un administrador.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 9",
+        "ID de la Historia": 9,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Toda autenticación y re-autenticación exitosa genera una nueva sesión y un identificador de sesión. El identificador de sesión nunca se revela en URL, mensajes de error o registros. Esto incluye verificar que la aplicación no admite la reescritura de URL de las cookies de sesión. Validar que solo los identificadores de sesión generados por el framework de la aplicación sean reconocidos como activos por la aplicación. Confirmar que los identificadores de sesión son lo suficientemente largos,",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "las sesiones de la aplicación deben ser únicas y resistentes al secuestro por parte de un actor malicioso.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 10",
+        "ID de la Historia": 10,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Existe el principio de mínimo privilegio: los usuarios solo deberían poder acceder a funciones, archivos de datos, URL, controladores, servicios y otros recursos para los que poseen autorización específica. Esto implica protección contra la suplantación y la elevación de privilegios. El acceso a registros sensibles está restringido, de modo que cada usuario solo pueda acceder a objetos o datos autorizados (por ejemplo, proteger a los usuarios de la manipulación de un parámetro para ver o alterar la cuenta de otro usuario). Si la aplicación es multiinquilino, se debe verificar esta segregación de usuarios y accesos. La aplicación debe usar tokens anti-CSRF aleatorios fuertes o tener otro mecanismo de protección de transacciones.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "las cuentas solo deben poder realizar aquellas acciones o acceder a los recursos que se les hayan otorgado explícitamente.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 11",
+        "ID de la Historia": 11,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Validar toda la entrada de datos de una entidad o cliente externo.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que la aplicación valide que la entrada sea correcta y se ajuste al propósito previsto.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 12",
+        "ID de la Historia": 12,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Existe una política explícita sobre cómo se gestionan las claves criptográficas (por ejemplo, se generan, distribuyen, revocan y caducan). Verificar que este ciclo de vida de la clave se aplique correctamente. Asegurarse de que los consumidores de servicios criptográficos no tengan acceso directo al material de la clave. Aislar los procesos criptográficos, incluidos los secretos maestros y considerar el uso de una cámara acorazada de claves físicas o virtualizada (HSM).",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "necesito acceso a las claves secretas de la aplicación gestionadas de forma segura.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 13",
+        "ID de la Historia": 13,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Verificar que todos los números aleatorios, nombres de archivo aleatorios, GUID aleatorios y cadenas aleatorias se generen utilizando el generador de números aleatorios aprobado por el módulo criptográfico cuando estos valores aleatorios están destinados a ser no adivinables por un atacante.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "necesito un nivel adecuado de entropía en la generación de claves para prevenir ataques.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 14",
+        "ID de la Historia": 14,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "La aplicación no genera mensajes de error o seguimientos de pila que contengan datos confidenciales que podrían ayudar a un atacante, incluido el identificador de sesión, las versiones de software/framework y la información personal. La aplicación no registra datos confidenciales según lo definido por las leyes o regulaciones de privacidad locales, los datos confidenciales de la organización según lo definido por una evaluación de riesgos, o los datos de autenticación confidenciales que podrían ayudar a un atacante, incluidos los identificadores de sesión de usuario, contraseñas, hashes o tokens API. Los controles de registro de seguridad brindan la capacidad de registrar eventos exitosos y particularmente fallidos que se identifican como relevantes para la seguridad. Cada evento de registro debe incluir la información necesaria que permitiría una investigación detallada de la línea de tiempo cuando ocurre un evento.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero la capacidad de recopilar registros en un formato estándar para un SIEM u otra herramienta de seguridad",
+            "Entonces": "que contenga información como el acceso de usuarios y administradores"
+        }
+    },
+    {
+        "Name": "Historia 15",
+        "ID de la Historia": 15,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Verificar que existe un método para eliminar cada tipo de dato confidencial de la aplicación al final de la política de retención requerida.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero la capacidad de especificar políticas de retención para ciertos datos RESTRINGIDOS o confidenciales para que estos datos puedan eliminarse al final del período de retención.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 16",
+        "ID de la Historia": 16,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "La capacidad de limitar el número de intentos de inicio de sesión o enviar alertas cuando se hayan superado los umbrales. Capacidad para enviar alertas cuando un rol intenta una acción más allá del nivel de privilegio o si los intentos de superar el nivel de privilegio alcanzan un umbral.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que la aplicación detecte y alerte cuando haya intentos no autorizados de acceder a mis datos",
+            "Entonces": "iniciar sesión o realizar cambios."
+        }
+    },
+    {
+        "Name": "Historia 17",
+        "ID de la Historia": 17,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Se registra el acceso o las modificaciones a datos confidenciales, si los datos se recopilan según las directivas de protección de datos relevantes o si se requiere el registro de accesos.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que la aplicación proporcione un registro de auditoría de acciones administrativas",
+            "Entonces": "modificaciones de usuarios o acceso a PII."
+        }
+    },
+    {
+        "Name": "Historia 18",
+        "ID de la Historia": 18,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Verificar que la aplicación utilice métodos apropiados como GET o POST, que se utilicen conjuntos de caracteres seguros, que se observen las políticas de origen único.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "necesito que las aplicaciones web sean resistentes a ataques de actores maliciosos que podrían afectar la disponibilidad o extraer datos y/o credenciales de los usuarios.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 19",
+        "ID de la Historia": 19,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Los clientes móviles deben cumplir con el Estándar de Desarrollo de Software Seguro de la empresa de software y se evalúan con el mismo nivel de rigor que otras aplicaciones de la empresa de software.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que el cliente móvil aplique el mismo nivel de controles de seguridad que otras aplicaciones de la empresa de software.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 20",
+        "ID de la Historia": 20,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "La aplicación móvil no almacena datos confidenciales en recursos compartidos potencialmente no cifrados en el dispositivo (por ejemplo, tarjeta SD o carpetas compartidas). Verificar que los datos confidenciales no se almacenen sin protección en el dispositivo, incluso en áreas protegidas por el sistema como llaveros. La aplicación móvil evita la fuga de información confidencial (por ejemplo, se guardan capturas de pantalla de la aplicación actual cuando la aplicación pasa a segundo plano o se escribe información confidencial en la consola).",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que el cliente móvil proteja los datos del usuario.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 21",
+        "ID de la Historia": 21,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Los valores de identificación almacenados en el dispositivo y recuperables por otras aplicaciones, como el número UDID o IMEI, no se utilizan como tokens de autenticación. Verificar que las claves secretas, los tokens API o las contraseñas se generen dinámicamente en las aplicaciones móviles.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que el cliente móvil utilice métodos de autenticación seguros.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 22",
+        "ID de la Historia": 22,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "La aplicación solicita permisos mínimos para la funcionalidad y los recursos requeridos.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que el cliente móvil observe el principio de \"mínimo privilegio\".",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 23",
+        "ID de la Historia": 23,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "El código sensible de la aplicación se presenta de forma impredecible en la memoria (por ejemplo, ASLR) y existen técnicas anti-depuración suficientes para disuadir o retrasar a los atacantes potenciales de inyectar depuradores en la aplicación móvil (por ejemplo, GDB). La aplicación no exporta actividades, intenciones o proveedores de contenido confidenciales para que otras aplicaciones móviles en el mismo dispositivo las exploten. La información confidencial mantenida en la memoria se sobrescribe con ceros tan pronto como ya no se requiera, para mitigar los ataques de volcado de memoria. Verificar que la aplicación valida la entrada a las actividades, intenciones o proveedores de contenido exportados.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que el cliente móvil utilice técnicas de codificación seguras.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 24",
+        "ID de la Historia": 24,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "El acceso a las funciones de administración y gestión dentro de la aplicación del servicio web está limitado a los administradores del servicio web. Verificar el uso de autenticación y autorización basadas en sesiones. Evitar el uso de \"claves API\" estáticas y similares.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que el servicio web implemente una autenticación",
+            "Entonces": "autorización y gestión de sesiones adecuadas."
+        }
+    },
+    {
+        "Name": "Historia 25",
+        "ID de la Historia": 25,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Se utiliza el mismo estilo de codificación entre el cliente y el servidor. Confirmar que el esquema XML o JSON está en su lugar y se verifica antes de aceptar la entrada. Asegurarse de que toda la entrada esté limitada a un límite de tamaño apropiado. Un servicio REST comprueba explícitamente el Content-Type entrante para que sea el esperado, como application/xml o application/json.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que el servicio web valide la entrada.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 26",
+        "ID de la Historia": 26,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Verificar que los servicios web basados en SOAP cumplan con el perfil básico de interoperabilidad de servicios web (WS-I) como mínimo. Esto esencialmente significa cifrado TLS. Las cargas útiles de los mensajes se firman para garantizar un transporte confiable entre el cliente y el servicio, utilizando JSON Web Signing o WS-Security para solicitudes SOAP. Verificar que no existan rutas de acceso alternativas y menos seguras.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que el servicio web garantice la confidencialidad e integridad de la comunicación.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 27",
+        "ID de la Historia": 27,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Usar uno o más de los siguientes: verificaciones ORIGIN, patrón de cookie de doble envío, nonces CSRF y verificaciones de referente.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que un servicio REST esté protegido contra ataques Cross-Site Request Forgery (CSRF).",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 28",
+        "ID de la Historia": 28,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Todos los componentes deben estar actualizados con las configuraciones y versiones de seguridad adecuadas. Verificar que los componentes de terceros provengan de repositorios confiables.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que todos los componentes de la aplicación tengan bibliotecas y plataformas actualizadas.",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 29",
+        "ID de la Historia": 29,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Eliminar configuraciones y carpetas innecesarias como aplicaciones de ejemplo, documentación de la plataforma y usuarios predeterminados o de ejemplo. Las comunicaciones entre componentes, como entre el servidor de la aplicación y el servidor de la base de datos, deben estar cifradas, especialmente cuando los",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que la configuración de la aplicación sea \"segura por defecto\".",
+            "Entonces": ""
+        }
+    },
+    {
+        "Name": "Historia 30",
+        "ID de la Historia": 30,
+        "Asignado a": "",
+        "Descripción": "",
+        "Roles Afectados": "",
+        "Criterios de Aceptación": "Validar que las implementaciones de la aplicación estén adecuadamente sandboxeadas, en contenedores o aisladas para retrasar y disuadir a los atacantes de atacar otras aplicaciones. Verificar que los procesos de creación e implementación de la aplicación se realicen de manera segura. Confirmar que todos los activos de la aplicación están alojados por la aplicación en lugar de en un CDN o proveedor externo, incluyendo; bibliotecas JavaScript, hojas de estilo CSS y fuentes web.",
+        "Estado": "",
+        "Riesgo": "",
+        "Release": "",
+        "Etiquetas": "",
+        "Requisito Padre": "",
+        "ID del Sistema": "",
+        "ID Externo": "",
+        "Historia": {
+            "Como": "Como Cliente de una empresa de software",
+            "Deseo": "quiero que la aplicación esté protegida y reforzada por defecto para que los cambios realizados por el usuario no expongan vulnerabilidades de seguridad o fallas en los sistemas subyacentes.",
+            "Entonces": ""
+        }
+    }
+]
