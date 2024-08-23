@@ -7,6 +7,18 @@ python.exe -m pip install --upgrade pip
 venv\Scripts\activate
 pip install -r requirements.txt
 
+##Enviroment Variables
+Must set a .env file with:
+API_KEY_TRELLO 
+SECRET_API_KEY_TRELLO
+TRELLO_BOARD_URL 
+JIRA_BASE_URL 
+EMAIL 
+API_TOKEN_JIRA 
+PROJECT_KEY_JIRA 
+BOARD_ID_JIRA_KANBAN 
+COLUMN_NAME = 'Security Backlog'
+
 ##Get API KEY TRELLO and Token
 https://docs.adaptavist.com/w4j/latest/quick-configuration-guide/add-sources/how-to-generate-trello-api-key-token
 https://trello.com/power-ups/admin/

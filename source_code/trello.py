@@ -1,11 +1,14 @@
 import os
-
 import requests
+from dotenv import load_dotenv
+
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
 
 # Configuraciones de Trello
-API_KEY = os.getenv('JIRA_API_TOKEN')
-SECRET_API_KEY = os.getenv('JIRA_API_TOKEN')
-TRELLO_BOARD_URL = os.getenv('JIRA_API_TOKEN')
+API_KEY = os.getenv('API_KEY_TRELLO')
+SECRET_API_KEY = os.getenv('SECRET_API_KEY_TRELLO')
+TRELLO_BOARD_URL = os.getenv('TRELLO_BOARD_URL')
 
 # URL del archivo JSON en GitHub
 GITHUB_URL = 'https://raw.githubusercontent.com/apastorini/scrum_secure_sdlc/main/user_stories/owasp/user_stories.json'
