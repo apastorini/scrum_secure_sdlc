@@ -23,6 +23,7 @@ logging.info(f"PROJECT_KEY: {PROJECT_KEY}")
 logging.info(f"API_TOKEN_JIRA: {API_TOKEN_JIRA[:4]}... (token oculto para seguridad)")
 logging.info(f"GITHUB_URL: {GITHUB_URL}")
 
+
 def verificar_autenticacion():
     url = f"{JIRA_BASE_URL}/rest/api/3/myself"
     auth = (EMAIL, API_TOKEN_JIRA)
@@ -38,6 +39,7 @@ def verificar_autenticacion():
         logging.error(f"Error desconocido al verificar la autenticación: {response.status_code} - {response.text}")
         return False
 
+
 def obtener_tableros():
     if not verificar_autenticacion():
         logging.error("No se puede continuar sin una autenticación válida.")
@@ -50,13 +52,29 @@ def obtener_tableros():
     if response.status_code == 200:
         tableros = response.json().get('values', [])
         if tableros:
-            logging.info(f"Tableros obtenidos: {[(t['id'], t['name']) for t in tableros]}")
+            for tablero in tableros:
+                tablero['type'] = obtener_tipo_tablero(tablero['id'])
+            logging.info(f"Tableros obtenidos: {[(t['id'], t['name'], t['type']) for t in tableros]}")
         else:
             logging.info("No se encontraron tableros.")
         return tableros
     else:
         logging.error(f"Error al obtener los tableros: {response.status_code} - {response.text}")
     return []
+
+
+def obtener_tipo_tablero(tablero_id):
+    url = f"{JIRA_BASE_URL}/rest/agile/1.0/board/{tablero_id}"
+    auth = (EMAIL, API_TOKEN_JIRA)
+    response = requests.get(url, auth=auth)
+
+    if response.status_code == 200:
+        tablero = response.json()
+        return tablero.get('type', 'Desconocido')
+    else:
+        logging.error(f"Error al obtener el tipo de tablero: {response.status_code} - {response.text}")
+        return 'Desconocido'
+
 
 def obtener_columnas(tablero_id):
     url = f"{JIRA_BASE_URL}/rest/agile/1.0/board/{tablero_id}/configuration"
@@ -71,6 +89,7 @@ def obtener_columnas(tablero_id):
         logging.error(f"Error al obtener columnas del tablero: {response.status_code} - {response.text}")
         return []
 
+
 def crear_issues(historias, tablero_id, columna_nombre):
     url = f"{JIRA_BASE_URL}/rest/api/3/issue"
     auth = (EMAIL, API_TOKEN_JIRA)
@@ -80,10 +99,8 @@ def crear_issues(historias, tablero_id, columna_nombre):
 
     for historia in historias:
         if tipo_exitoso:
-            # Usar el tipo exitoso para todas las historias restantes
             tipos_a_probar = [tipo_exitoso]
         else:
-            # Probar todos los tipos de incidencia hasta encontrar uno que funcione
             tipos_a_probar = tipos_incidente
 
         for tipo in tipos_a_probar:
@@ -91,12 +108,13 @@ def crear_issues(historias, tablero_id, columna_nombre):
             payload = {
                 "fields": {
                     "project": {"key": PROJECT_KEY},
-                    "summary": historia['Criterios de Aceptación'][:250],  # Truncar si es necesario
+                    "summary": historia['Criterios de Aceptación'][:250],
                     "description": {
                         "type": "doc",
                         "version": 1,
                         "content": [{"type": "paragraph", "content": [{"type": "text",
-                                                                       "text": historia['Historia']['Como'][:250] + ' ' +
+                                                                       "text": historia['Historia']['Como'][
+                                                                               :250] + ' ' +
                                                                                historia['Historia']['Deseo'][:250]}]}]
                     },
                     "issuetype": {"name": tipo}
@@ -108,12 +126,13 @@ def crear_issues(historias, tablero_id, columna_nombre):
                 mover_issue_a_columna_por_nombre(issue_id, columna_nombre)
                 tipo_exitoso = tipo
                 logging.info(f"Issue creado con éxito. Payload enviado: {payload}")
-                break  # Detenerse si se crea exitosamente
+                break
             else:
                 logging.error(
                     f"Error al crear issue '{historia['Criterios de Aceptación']}' con tipo '{tipo}': {response.status_code} - {response.text}")
                 if response.status_code != 400:
                     break
+
 
 def mover_issue_a_columna_por_nombre(issue_id, columna_nombre):
     url = f"{JIRA_BASE_URL}/rest/api/3/issue/{issue_id}/transitions"
@@ -137,6 +156,7 @@ def mover_issue_a_columna_por_nombre(issue_id, columna_nombre):
         logging.error(
             f"Error al obtener transiciones del issue {issue_id}: {transitions_response.status_code} - {transitions_response.text}")
 
+
 def obtener_tipos_incidente(tablero_id):
     url = f"{JIRA_BASE_URL}/rest/api/3/issuetype"
     auth = (EMAIL, API_TOKEN_JIRA)
@@ -151,6 +171,7 @@ def obtener_tipos_incidente(tablero_id):
         logging.error(f"Error al obtener tipos de incidencia: {response.status_code} - {response.text}")
         return []
 
+
 def main():
     tableros = obtener_tableros()
     if not tableros:
@@ -158,7 +179,7 @@ def main():
         return
 
     for i, tablero in enumerate(tableros, start=1):
-        print(f"{i}. {tablero['name']} (ID: {tablero['id']})")
+        print(f"{i}. {tablero['name']} (ID: {tablero['id']}, Tipo: {tablero['type']})")
 
     seleccion = input("Selecciona el número del tablero para continuar, o presiona 'q' para salir: ")
     if seleccion.lower() == 'q':
@@ -168,10 +189,8 @@ def main():
     try:
         tablero_seleccionado = tableros[int(seleccion) - 1]
         tablero_id = tablero_seleccionado['id']
-        logging.info(f"Tablero seleccionado: {tablero_seleccionado['name']} (ID: {tablero_id})")
-
-        tipo_proyecto = "Kanban"
-        logging.info(f"El tipo de proyecto es: {tipo_proyecto}")
+        tipo_proyecto = tablero_seleccionado['type']
+        logging.info(f"Tablero seleccionado: {tablero_seleccionado['name']} (ID: {tablero_id}, Tipo: {tipo_proyecto})")
 
         columnas = obtener_columnas(tablero_id)
         for i, columna in enumerate(columnas, start=1):
@@ -200,6 +219,7 @@ def main():
 
     except (IndexError, ValueError) as e:
         logging.error(f"Selección inválida. {str(e)}")
+
 
 if __name__ == "__main__":
     main()
