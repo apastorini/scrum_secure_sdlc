@@ -23,8 +23,6 @@ logging.info(f"PROJECT_KEY: {PROJECT_KEY}")
 logging.info(f"API_TOKEN_JIRA: {API_TOKEN_JIRA[:4]}... (token oculto para seguridad)")
 logging.info(f"GITHUB_URL: {GITHUB_URL}")
 
-# Variable global para almacenar el tipo de incidencia exitoso
-tipo_incidencia_predeterminado = None
 
 def verificar_autenticacion():
     url = f"{JIRA_BASE_URL}/rest/api/3/myself"
@@ -40,6 +38,7 @@ def verificar_autenticacion():
     else:
         logging.error(f"Error desconocido al verificar la autenticación: {response.status_code} - {response.text}")
         return False
+
 
 def obtener_tableros():
     if not verificar_autenticacion():
@@ -61,6 +60,7 @@ def obtener_tableros():
         logging.error(f"Error al obtener los tableros: {response.status_code} - {response.text}")
     return []
 
+
 def obtener_columnas(tablero_id):
     url = f"{JIRA_BASE_URL}/rest/agile/1.0/board/{tablero_id}/configuration"
     auth = (EMAIL, API_TOKEN_JIRA)
@@ -69,49 +69,22 @@ def obtener_columnas(tablero_id):
     if response.status_code == 200:
         columnas = response.json().get('columnConfig', {}).get('columns', [])
         # Mostrar los nombres de las columnas
-        columnas_con_id = [(columna['name'], columna.get('id', 'N/A')) for columna in columnas]
-        logging.info(f"Columnas disponibles en el tablero: {columnas_con_id}")
-        return columnas_con_id
+        logging.info(f"Columnas disponibles en el tablero: {[f'{columna['name']}' for columna in columnas]}")
+        return columnas
     else:
         logging.error(f"Error al obtener columnas del tablero: {response.status_code} - {response.text}")
         return []
 
-def obtener_usuario_jira(username):
-    url = f"{JIRA_BASE_URL}/rest/api/3/user/search?username={username}"
-    auth = (EMAIL, API_TOKEN_JIRA)
-    response = requests.get(url, auth=auth)
-
-    if response.status_code == 200:
-        usuarios = response.json()
-        if usuarios:
-            logging.info(f"Usuario encontrado: {usuarios[0]['displayName']} (ID: {usuarios[0]['accountId']})")
-            return usuarios[0]['accountId']
-        else:
-            logging.warning(f"No se encontró un usuario con el nombre: {username}")
-            return None
-    else:
-        logging.error(f"Error al buscar usuario en Jira: {response.status_code} - {response.text}")
-        return None
 
 def crear_issues(historias, tablero_id, columna_nombre):
-    global tipo_incidencia_predeterminado
     url = f"{JIRA_BASE_URL}/rest/api/3/issue"
     auth = (EMAIL, API_TOKEN_JIRA)
 
-    if tipo_incidencia_predeterminado:
-        tipos_incidente = [tipo_incidencia_predeterminado]
-        logging.info(f"Usando tipo de incidencia predeterminado: {tipo_incidencia_predeterminado}")
-    else:
-        tipos_incidente = obtener_tipos_incidente(tablero_id)
+    tipos_incidente = obtener_tipos_incidente(tablero_id)
 
     for historia in historias:
-        issue_creado = False
         for tipo in tipos_incidente:
             logging.info(f"Intentando crear issue con tipo de incidencia: {tipo}")
-            # Obtener el ID del usuario asignado
-            asignado_a = historia.get('Asignado a', '').strip()
-            asignado_id = obtener_usuario_jira(asignado_a) if asignado_a else None
-
             payload = {
                 "fields": {
                     "project": {"key": PROJECT_KEY},
@@ -126,28 +99,20 @@ def crear_issues(historias, tablero_id, columna_nombre):
                     "issuetype": {"name": tipo}
                 }
             }
-
-            # Asignar si hay un ID de usuario disponible
-            if asignado_id:
-                payload['fields']['assignee'] = {"id": asignado_id}
-
             response = requests.post(url, json=payload, auth=auth)
             if response.status_code == 201:
                 issue_id = response.json()['id']
                 mover_issue_a_columna_por_nombre(issue_id, columna_nombre)
-                issue_creado = True
-                tipo_incidencia_predeterminado = tipo  # Guardar el tipo de incidencia exitoso
                 break  # Detenerse si se crea exitosamente
             else:
                 logging.error(
                     f"Error al crear issue '{historia['Criterios de Aceptación']}' con tipo '{tipo}': {response.status_code} - {response.text}")
                 if response.status_code != 400:
                     break
-        if not issue_creado:
-            logging.error(
-                f"No se pudo crear el issue '{historia['Criterios de Aceptación']}' con ningún tipo de incidencia disponible. Revisa el formato de los datos y los permisos en Jira.")
+
 
 def mover_issue_a_columna_por_nombre(issue_id, columna_nombre):
+    # El método para mover un issue basado en el nombre de la columna
     url = f"{JIRA_BASE_URL}/rest/api/3/issue/{issue_id}/transitions"
     auth = (EMAIL, API_TOKEN_JIRA)
     transitions_response = requests.get(url, auth=auth)
@@ -169,6 +134,7 @@ def mover_issue_a_columna_por_nombre(issue_id, columna_nombre):
         logging.error(
             f"Error al obtener transiciones del issue {issue_id}: {transitions_response.status_code} - {transitions_response.text}")
 
+
 def obtener_tipos_incidente(tablero_id):
     url = f"{JIRA_BASE_URL}/rest/api/3/issuetype"
     auth = (EMAIL, API_TOKEN_JIRA)
@@ -182,6 +148,7 @@ def obtener_tipos_incidente(tablero_id):
     else:
         logging.error(f"Error al obtener tipos de incidencia: {response.status_code} - {response.text}")
         return []
+
 
 def main():
     tableros = obtener_tableros()
@@ -206,17 +173,19 @@ def main():
         logging.info(f"El tipo de proyecto es: {tipo_proyecto}")
 
         columnas = obtener_columnas(tablero_id)
-        for i, (nombre, id_columna) in enumerate(columnas, start=1):
-            print(f"{i}. {nombre} (ID: {id_columna})")
+        for i, columna in enumerate(columnas, start=1):
+            print(f"{i}. {columna['name']}")
 
         columna_seleccionada = input("Selecciona el número de la columna para agregar las historias: ")
 
+        # Validar si la selección es un número válido y si la columna seleccionada tiene un nombre
         try:
             seleccion_index = int(columna_seleccionada) - 1
             if seleccion_index < 0 or seleccion_index >= len(columnas):
                 raise IndexError("Selección fuera de rango")
-            columna_nombre, columna_id = columnas[seleccion_index]
-            logging.info(f"Columna seleccionada: {columna_nombre} (ID: {columna_id})")
+            columna = columnas[seleccion_index]
+            columna_nombre = columna['name']
+            logging.info(f"Columna seleccionada: {columna_nombre}")
         except (IndexError, ValueError) as e:
             logging.error(f"Selección de columna inválida. Error: {str(e)}")
             return
@@ -231,6 +200,7 @@ def main():
 
     except (IndexError, ValueError) as e:
         logging.error(f"Selección inválida. {str(e)}")
+
 
 if __name__ == "__main__":
     main()
