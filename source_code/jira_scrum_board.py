@@ -1,13 +1,16 @@
 import requests
 import logging
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # Configuraciones de Jira
-JIRA_BASE_URL = os.getenv('JIRA_BASE_URL')
+# Asignar variables de entorno
 EMAIL = os.getenv('EMAIL')
-API_TOKEN =os.getenv('API_TOKEN_JIRA')
+API_TOKEN_JIRA = os.getenv('API_TOKEN_JIRA')
+JIRA_BASE_URL = os.getenv('JIRA_BASE_URL')
 PROJECT_KEY = os.getenv('PROJECT_KEY_JIRA_SCRUM')
-BOARD_ID = os.getenv('BOARD_ID_JIRA_SCRUM')
+GITHUB_URL = os.getenv('GITHUB_URL')
 
 
 
@@ -16,8 +19,8 @@ BOARD_ID = os.getenv('BOARD_ID_JIRA_SCRUM')
 log_file_path = os.path.join(os.path.dirname(__file__), 'jira_script.log')
 logging.basicConfig(filename=log_file_path, level=logging.INFO, format='%(asctime)s - %(message)s')
 
-# URL del archivo JSON en GitHub
-GITHUB_URL = 'https://raw.githubusercontent.com/apastorini/scrum_secure_sdlc/main/user_stories/owasp/user_stories.json'
+
+
 
 
 def verificar_token():
@@ -25,7 +28,7 @@ def verificar_token():
     Verifica si el token de Jira sigue vigente realizando una solicitud al endpoint 'myself'.
     """
     url = f"{JIRA_BASE_URL}/rest/api/3/myself"
-    auth = (EMAIL, API_TOKEN)
+    auth = (EMAIL, API_TOKEN_JIRA)
     response = requests.get(url, auth=auth)
 
     if response.status_code == 200:
@@ -46,7 +49,7 @@ def obtener_tipos_de_issue():
     Obtiene los tipos de issue válidos para el proyecto especificado.
     """
     url = f"{JIRA_BASE_URL}/rest/api/3/issue/createmeta?projectKeys={PROJECT_KEY}&expand=projects.issuetypes"
-    auth = (EMAIL, API_TOKEN)
+    auth = (EMAIL, API_TOKEN_JIRA)
     response = requests.get(url, auth=auth)
 
     if response.status_code == 200:
@@ -83,7 +86,7 @@ def crear_issue(nombre, descripcion, tipo_issue):
     Crea una nueva tarea (issue) en Jira.
     """
     url = f"{JIRA_BASE_URL}/rest/api/3/issue"
-    auth = (EMAIL, API_TOKEN)
+    auth = (EMAIL, API_TOKEN_JIRA)
     headers = {
         'Content-Type': 'application/json'
     }

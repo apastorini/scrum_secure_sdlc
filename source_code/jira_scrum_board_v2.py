@@ -13,7 +13,7 @@ load_dotenv()
 EMAIL = os.getenv('EMAIL')
 API_TOKEN_JIRA = os.getenv('API_TOKEN_JIRA')
 JIRA_BASE_URL = os.getenv('JIRA_BASE_URL')
-PROJECT_KEY = os.getenv('PROJECT_KEY_JIRA_KANBAN')
+PROJECT_KEY = os.getenv('PROJECT_KEY_JIRA_SCRUM')
 GITHUB_URL = os.getenv('GITHUB_URL')
 
 # Imprimir las variables de entorno para verificar (no imprimas valores sensibles en un entorno de producción)
@@ -90,7 +90,7 @@ def obtener_columnas(tablero_id):
         return []
 
 
-def crear_issues(historias, tablero_id, columna_nombre):
+def crear_issues(historias, tablero_id, columna_nombre, tipo_proyecto):
     url = f"{JIRA_BASE_URL}/rest/api/3/issue"
     auth = (EMAIL, API_TOKEN_JIRA)
 
@@ -123,6 +123,8 @@ def crear_issues(historias, tablero_id, columna_nombre):
             response = requests.post(url, json=payload, auth=auth)
             if response.status_code == 201:
                 issue_id = response.json()['id']
+                if tipo_proyecto == "scrum":
+                    mover_issue_a_backlog(issue_id)
                 mover_issue_a_columna_por_nombre(issue_id, columna_nombre)
                 tipo_exitoso = tipo
                 logging.info(f"Issue creado con éxito. Payload enviado: {payload}")
@@ -132,6 +134,18 @@ def crear_issues(historias, tablero_id, columna_nombre):
                     f"Error al crear issue '{historia['Criterios de Aceptación']}' con tipo '{tipo}': {response.status_code} - {response.text}")
                 if response.status_code != 400:
                     break
+
+
+def mover_issue_a_backlog(issue_id):
+    url = f"{JIRA_BASE_URL}/rest/agile/1.0/backlog/issue"
+    auth = (EMAIL, API_TOKEN_JIRA)
+    payload = {"issues": [issue_id]}
+    response = requests.post(url, json=payload, auth=auth)
+
+    if response.status_code == 204:
+        logging.info(f"Issue {issue_id} añadido al backlog.")
+    else:
+        logging.error(f"Error al añadir issue {issue_id} al backlog: {response.status_code} - {response.text}")
 
 
 def mover_issue_a_columna_por_nombre(issue_id, columna_nombre):
@@ -190,7 +204,8 @@ def main():
         tablero_seleccionado = tableros[int(seleccion) - 1]
         tablero_id = tablero_seleccionado['id']
         tipo_proyecto = tablero_seleccionado['type']
-        logging.info(f"Tablero seleccionado: {tablero_seleccionado['name']} (ID: {tablero_id}, Tipo: {tipo_proyecto})")
+        logging.info(f"Tablero seleccionado: {tablero_seleccionado['name']} (ID: {tablero_id})")
+        logging.info(f"El tipo de proyecto es: {tipo_proyecto}")
 
         columnas = obtener_columnas(tablero_id)
         for i, columna in enumerate(columnas, start=1):
@@ -213,7 +228,7 @@ def main():
         if response.status_code == 200:
             historias = response.json()
             logging.info("Archivo JSON descargado y cargado exitosamente.")
-            crear_issues(historias, tablero_id, columna_nombre)
+            crear_issues(historias, tablero_id, columna_nombre, tipo_proyecto)
         else:
             logging.error(f"Error al descargar el archivo JSON: {response.status_code} - {response.text}")
 
