@@ -3,11 +3,11 @@ import logging
 import os
 
 # Configuraciones de Jira
-JIRA_BASE_URL =os.getenv('JIRA_API_TOKEN')
-EMAIL = os.getenv('JIRA_API_TOKEN')
-API_TOKEN = os.getenv('JIRA_API_TOKEN')
-PROJECT_KEY =os.getenv('JIRA_API_TOKEN') # Clave del proyecto de Jira
-BOARD_ID = '2'  # ID del tablero de Jira (ajustado según la nueva URL del tablero)
+JIRA_BASE_URL = os.getenv('JIRA_BASE_URL')
+EMAIL = os.getenv('EMAIL')
+API_TOKEN =os.getenv('API_TOKEN_JIRA')
+PROJECT_KEY = os.getenv('PROJECT_KEY_JIRA_SCRUM')
+BOARD_ID = os.getenv('BOARD_ID_JIRA_SCRUM')
 
 
 
