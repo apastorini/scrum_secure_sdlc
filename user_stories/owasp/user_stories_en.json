@@ -5,7 +5,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Los datos se segregan por inquilino. Los administradores y usuarios deben estar separados por rol para evitar la divulgación o modificación no autorizada. La información de identificación personal (datos RESTRINGIDOS de la empresa de software) debe estar cifrada en reposo y en tránsito por redes públicas.",
+        "Acceptance Criteria": "Data is segregated by tenant. Administrators and users must be separated by role to prevent unauthorized disclosure or modification. Personally identifiable information (RESTRICTED data of the software company) must be encrypted at rest and in transit over public networks.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -14,8 +14,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "mis datos deben estar protegidos contra la divulgación no intencional a otros clientes o terceros.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure my data is protected against unintentional disclosure to other customers or third parties.",
             "So that": ""
         }
     },
@@ -25,7 +25,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Verificar que los campos de ingreso de contraseña permiten, o fomentan, el uso de frases secretas, frases de paso largas o contraseñas altamente complejas. Verificar que existan medidas para bloquear el uso de contraseñas comúnmente elegidas y frases secretas débiles.",
+        "Acceptance Criteria": "Verify that password input fields allow or encourage the use of passphrases, long passphrases, or highly complex passwords. Verify that there are measures to block the use of commonly chosen passwords and weak passphrases.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -34,8 +34,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "necesito que la aplicación permita frases secretas y/o contraseñas complejas.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the application allows for passphrases and/or complex passwords.",
             "So that": ""
         }
     },
@@ -45,7 +45,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Verificar que todas las conexiones a aplicaciones que contienen información o funciones del cliente estén autenticadas.",
+        "Acceptance Criteria": "Verify that all connections to applications containing client information or functions are authenticated.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -54,8 +54,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "necesito que todas las conexiones a una aplicación que contenga mis datos de usuario estén autenticadas.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that all connections to an application containing my user data are authenticated.",
             "So that": ""
         }
     },
@@ -65,7 +65,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Verificar que la contraseña y otros campos de ingreso de datos que contienen información RESTRINGIDA no se almacenen en caché ni permitan el autocompletado. Se puede hacer una excepción para los administradores de contraseñas.",
+        "Acceptance Criteria": "Verify that password and other data entry fields containing RESTRICTED information are not cached or allow autocomplete. An exception can be made for password managers.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -74,8 +74,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "necesito que el ingreso de contraseña y otros campos que contienen información sensible no permitan el almacenamiento en caché ni el autocompletado.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that password entry and other fields containing sensitive information do not allow caching or autocomplete.",
             "So that": ""
         }
     },
@@ -85,7 +85,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Verificar que todas las funciones de autenticación de identidad de la cuenta (como actualizar perfil, contraseña olvidada, token deshabilitado/perdido, mesa de ayuda o IVR) que podrían recuperar el acceso a la cuenta sean al menos tan resistentes a ataques como el mecanismo de autenticación principal. Como mínimo, verificar que la funcionalidad de cambio de contraseña incluya la contraseña anterior, la nueva contraseña y una confirmación de la contraseña. Verificar que la función de contraseña olvidada y otros mecanismos de recuperación no revelen la contraseña actual y que la nueva contraseña no se envíe en texto claro al usuario. Verificar que la contraseña olvidada y otras rutas de recuperación utilicen un TOTP u otro token software, push móvil u otro mecanismo de recuperación sin conexión. El uso de un valor aleatorio en un correo electrónico o SMS debe ser un último recurso.",
+        "Acceptance Criteria": "Verify that all account identity authentication functions (such as updating profile, forgotten password, disabled/lost token, help desk, or IVR) that could regain account access are at least as resistant to attacks as the primary authentication mechanism. At a minimum, verify that the password change functionality includes the old password, the new password, and a password confirmation. Verify that the forgotten password function and other recovery mechanisms do not reveal the current password and that the new password is not sent in clear text to the user. Verify that forgotten password and other recovery routes use a TOTP or other software token, mobile push, or other offline recovery mechanism. Using a random value in an email or SMS should be a last resort.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -94,8 +94,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "necesito la capacidad de cambiar o restablecer mi contraseña de forma segura sin preocuparme de que mis cuentas puedan ser secuestradas por un tercero malicioso.",
+            "As a": "As a Customer of a software company",
+            "I want to": "have the ability to change or reset my password securely without worrying that my accounts could be hijacked by a malicious third party.",
             "So that": ""
         }
     },
@@ -105,7 +105,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Verificar que las contraseñas de las cuentas estén hash unidireccional con un salt, y que haya suficiente factor de trabajo para derrotar ataques de fuerza bruta y recuperación de hash de contraseña. Verificar que las credenciales se transportan utilizando un enlace cifrado adecuado y que todas las páginas/funciones que requieren que un usuario ingrese credenciales se hagan utilizando un enlace cifrado.",
+        "Acceptance Criteria": "Verify that account passwords are hashed one-way with a salt, and that there is sufficient work factor to defeat brute force and password hash recovery attacks. Verify that credentials are transported using a suitable encrypted link and that all pages/functions requiring a user to enter credentials do so using an encrypted link.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -114,9 +114,9 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que mis credenciales de cuenta se creen",
-            "So that": "almacenen y transporten de forma segura para que no puedan ser adivinadas"
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that my account credentials are created",
+            "So that": "stored and transported securely so they cannot be guessed."
         }
     },
     {
@@ -125,7 +125,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Los usuarios pueden autenticarse mediante autenticación de dos factores u otra autenticación fuerte, o cualquier esquema similar que brinde protección contra la divulgación del nombre de usuario y la contraseña. Verificar que la re-autenticación basada en riesgos, el factor doble o la firma de transacciones estén implementados para transacciones de alto valor.",
+        "Acceptance Criteria": "Users can authenticate using two-factor authentication or other strong authentication, or any similar scheme that provides protection against disclosure of username and password. Verify that risk-based re-authentication, double factor, or transaction signing are implemented for high-value transactions.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -134,8 +134,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "necesito un factor adicional de autenticación para proteger mis cuentas del acceso no autorizado. Quiero una autenticación por pasos para transacciones y cambios riesgosos en las cuentas.",
+            "As a": "As a Customer of a software company",
+            "I want to": "have an additional authentication factor to protect my accounts from unauthorized access. I want step-up authentication for risky transactions and changes in accounts.",
             "So that": ""
         }
     },
@@ -145,7 +145,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Las sesiones se invalidan cuando el usuario cierra la sesión. Verificar que las sesiones expiren después de un período específico de inactividad o después de un período máximo configurable administrativamente independientemente de la actividad (un tiempo de espera absoluto).",
+        "Acceptance Criteria": "Sessions are invalidated when the user logs out. Verify that sessions expire after a specific period of inactivity or after a maximum configurable period independently of activity (an absolute timeout).",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -154,8 +154,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero una función de cierre de sesión de usuario. Necesito que las sesiones de usuario se desactiven después del cierre de sesión y se agoten después de la inactividad o un límite de tiempo establecido por un administrador.",
+            "As a": "As a Customer of a software company",
+            "I want to": "have a user logout function. I need user sessions to be deactivated after logout and expire after inactivity or an administrator-set time limit.",
             "So that": ""
         }
     },
@@ -165,7 +165,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Toda autenticación y re-autenticación exitosa genera una nueva sesión y un identificador de sesión. El identificador de sesión nunca se revela en URL, mensajes de error o registros. Esto incluye verificar que la aplicación no admite la reescritura de URL de las cookies de sesión. Validar que solo los identificadores de sesión generados por el framework de la aplicación sean reconocidos como activos por la aplicación. Confirmar que los identificadores de sesión son lo suficientemente largos,",
+        "Acceptance Criteria": "All successful authentication and re-authentication generates a new session and session identifier. The session identifier is never revealed in URLs, error messages, or logs. This includes verifying that the application does not support session cookie URL rewriting. Validate that only session identifiers generated by the application framework are recognized as active by the application. Confirm that session identifiers are sufficiently long,",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -174,8 +174,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "las sesiones de la aplicación deben ser únicas y resistentes al secuestro por parte de un actor malicioso.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that application sessions are unique and resistant to hijacking by a malicious actor.",
             "So that": ""
         }
     },
@@ -185,7 +185,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Existe el principio de mínimo privilegio: los usuarios solo deberían poder acceder a funciones, archivos de datos, URL, controladores, servicios y otros recursos para los que poseen autorización específica. Esto implica protección contra la suplantación y la elevación de privilegios. El acceso a registros sensibles está restringido, de modo que cada usuario solo pueda acceder a objetos o datos autorizados (por ejemplo, proteger a los usuarios de la manipulación de un parámetro para ver o alterar la cuenta de otro usuario). Si la aplicación es multiinquilino, se debe verificar esta segregación de usuarios y accesos. La aplicación debe usar tokens anti-CSRF aleatorios fuertes o tener otro mecanismo de protección de transacciones.",
+        "Acceptance Criteria": "There is the principle of least privilege: users should only be able to access functions, data files, URLs, controllers, services, and other resources for which they have specific authorization. This implies protection against spoofing and privilege escalation. Access to sensitive logs is restricted, so each user can only access authorized objects or data (e.g., protecting users from parameter tampering to view or alter another user's account). If the application is multi-tenant, this user and access segregation should be verified. The application should use strong random anti-CSRF tokens or have another transaction protection mechanism.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -194,8 +194,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "las cuentas solo deben poder realizar aquellas acciones o acceder a los recursos que se les hayan otorgado explícitamente.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that accounts can only perform actions or access resources that they have been explicitly granted.",
             "So that": ""
         }
     },
@@ -205,7 +205,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Validar toda la entrada de datos de una entidad o cliente externo.",
+        "Acceptance Criteria": "Validate all data input from an external entity or client.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -214,8 +214,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que la aplicación valide que la entrada sea correcta y se ajuste al propósito previsto.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the application validates that the input is correct and fits the intended purpose.",
             "So that": ""
         }
     },
@@ -225,7 +225,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Existe una política explícita sobre cómo se gestionan las claves criptográficas (por ejemplo, se generan, distribuyen, revocan y caducan). Verificar que este ciclo de vida de la clave se aplique correctamente. Asegurarse de que los consumidores de servicios criptográficos no tengan acceso directo al material de la clave. Aislar los procesos criptográficos, incluidos los secretos maestros y considerar el uso de una cámara acorazada de claves físicas o virtualizada (HSM).",
+        "Acceptance Criteria": "There is an explicit policy on how cryptographic keys are managed (e.g., generated, distributed, revoked, and expired). Verify that this key lifecycle is applied correctly. Ensure that consumers of cryptographic services do not have direct access to the key material. Isolate cryptographic processes, including master secrets, and consider using a physical or virtual key vault (HSM).",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -234,8 +234,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "necesito acceso a las claves secretas de la aplicación gestionadas de forma segura.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure access to application secret keys is managed securely.",
             "So that": ""
         }
     },
@@ -245,7 +245,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Verificar que todos los números aleatorios, nombres de archivo aleatorios, GUID aleatorios y cadenas aleatorias se generen utilizando el generador de números aleatorios aprobado por el módulo criptográfico cuando estos valores aleatorios están destinados a ser no adivinables por un atacante.",
+        "Acceptance Criteria": "Verify that all random numbers, random file names, random GUIDs, and random strings are generated using the approved random number generator from the cryptographic module when these random values are intended to be non-guessable by an attacker.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -254,8 +254,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "necesito un nivel adecuado de entropía en la generación de claves para prevenir ataques.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure an adequate level of entropy in key generation to prevent attacks.",
             "So that": ""
         }
     },
@@ -265,7 +265,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "La aplicación no genera mensajes de error o seguimientos de pila que contengan datos confidenciales que podrían ayudar a un atacante, incluido el identificador de sesión, las versiones de software/framework y la información personal. La aplicación no registra datos confidenciales según lo definido por las leyes o regulaciones de privacidad locales, los datos confidenciales de la organización según lo definido por una evaluación de riesgos, o los datos de autenticación confidenciales que podrían ayudar a un atacante, incluidos los identificadores de sesión de usuario, contraseñas, hashes o tokens API. Los controles de registro de seguridad brindan la capacidad de registrar eventos exitosos y particularmente fallidos que se identifican como relevantes para la seguridad. Cada evento de registro debe incluir la información necesaria que permitiría una investigación detallada de la línea de tiempo cuando ocurre un evento.",
+        "Acceptance Criteria": "The application does not generate error messages or stack traces containing sensitive data that could aid an attacker, including session identifiers, software/framework versions, and personal information. The application does not log sensitive data as defined by local privacy laws or regulations, the organization's sensitive data as defined by a risk assessment, or sensitive authentication data that could aid an attacker, including user session identifiers, passwords, hashes, or API tokens. Security logging controls provide the ability to log successful and particularly failed events identified as relevant to security. Each log event must include the necessary information that would allow a detailed investigation of the timeline when an event occurs.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -274,9 +274,9 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero la capacidad de recopilar registros en un formato estándar para un SIEM u otra herramienta de seguridad",
-            "So that": "que contenga información como el acceso de usuarios y administradores"
+            "As a": "As a Customer of a software company",
+            "I want to": "have the ability to collect logs in a standard format for a SIEM or other security tool",
+            "So that": "that contains information such as user and admin access."
         }
     },
     {
@@ -285,7 +285,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Verificar que existe un método para eliminar cada tipo de dato confidencial de la aplicación al final de la política de retención requerida.",
+        "Acceptance Criteria": "Verify that there is a method to delete each type of sensitive data from the application at the end of the required retention policy.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -294,8 +294,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero la capacidad de especificar políticas de retención para ciertos datos RESTRINGIDOS o confidenciales para que estos datos puedan eliminarse al final del período de retención.",
+            "As a": "As a Customer of a software company",
+            "I want to": "have the ability to specify retention policies for certain RESTRICTED or sensitive data so that this data can be deleted at the end of the retention period.",
             "So that": ""
         }
     },
@@ -305,7 +305,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "La capacidad de limitar el número de intentos de inicio de sesión o enviar alertas cuando se hayan superado los umbrales. Capacidad para enviar alertas cuando un rol intenta una acción más allá del nivel de privilegio o si los intentos de superar el nivel de privilegio alcanzan un umbral.",
+        "Acceptance Criteria": "The ability to limit the number of login attempts or send alerts when thresholds are exceeded. Ability to send alerts when a role attempts an action beyond the privilege level or if attempts to exceed the privilege level reach a threshold.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -314,9 +314,9 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que la aplicación detecte y alerte cuando haya intentos no autorizados de acceder a mis datos",
-            "So that": "iniciar sesión o realizar cambios."
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the application detects and alerts when there are unauthorized attempts to access my data",
+            "So that": "log in or make changes."
         }
     },
     {
@@ -325,7 +325,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Se registra el acceso o las modificaciones a datos confidenciales, si los datos se recopilan según las directivas de protección de datos relevantes o si se requiere el registro de accesos.",
+        "Acceptance Criteria": "Access or modifications to sensitive data are logged, if the data is collected according to relevant data protection directives or if access logging is required.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -334,9 +334,9 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que la aplicación proporcione un registro de auditoría de acciones administrativas",
-            "So that": "modificaciones de usuarios o acceso a PII."
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the application provides an audit log of administrative actions",
+            "So that": "user modifications or access to PII."
         }
     },
     {
@@ -345,7 +345,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Verificar que la aplicación utilice métodos apropiados como GET o POST, que se utilicen conjuntos de caracteres seguros, que se observen las políticas de origen único.",
+        "Acceptance Criteria": "Verify that the application uses appropriate methods such as GET or POST, secure character sets are used, and single-origin policies are observed.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -354,8 +354,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "necesito que las aplicaciones web sean resistentes a ataques de actores maliciosos que podrían afectar la disponibilidad o extraer datos y/o credenciales de los usuarios.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that web applications are resistant to attacks by malicious actors that could affect availability or extract user data and/or credentials.",
             "So that": ""
         }
     },
@@ -365,7 +365,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Los clientes móviles deben cumplir con el Estándar de Desarrollo de Software Seguro de la empresa de software y se evalúan con el mismo nivel de rigor que otras aplicaciones de la empresa de software.",
+        "Acceptance Criteria": "Mobile clients must comply with the Secure Software Development Standard of the software company and be evaluated with the same level of rigor as other software company applications.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -374,8 +374,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que el cliente móvil aplique el mismo nivel de controles de seguridad que otras aplicaciones de la empresa de software.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the mobile client applies the same level of security controls as other software company applications.",
             "So that": ""
         }
     },
@@ -385,7 +385,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "La aplicación móvil no almacena datos confidenciales en recursos compartidos potencialmente no cifrados en el dispositivo (por ejemplo, tarjeta SD o carpetas compartidas). Verificar que los datos confidenciales no se almacenen sin protección en el dispositivo, incluso en áreas protegidas por el sistema como llaveros. La aplicación móvil evita la fuga de información confidencial (por ejemplo, se guardan capturas de pantalla de la aplicación actual cuando la aplicación pasa a segundo plano o se escribe información confidencial en la consola).",
+        "Acceptance Criteria": "The mobile application does not store sensitive data in potentially unencrypted shared resources on the device (e.g., SD card or shared folders). Verify that sensitive data is not stored unprotected on the device, even in system-protected areas such as keychains. The mobile application prevents the leakage of sensitive information (e.g., screenshots of the current application are saved when the application is sent to the background or sensitive information is written to the console).",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -394,8 +394,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que el cliente móvil proteja los datos del usuario.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the mobile client protects user data.",
             "So that": ""
         }
     },
@@ -405,7 +405,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Los valores de identificación almacenados en el dispositivo y recuperables por otras aplicaciones, como el número UDID o IMEI, no se utilizan como tokens de autenticación. Verificar que las claves secretas, los tokens API o las contraseñas se generen dinámicamente en las aplicaciones móviles.",
+        "Acceptance Criteria": "Identification values stored on the device and retrievable by other applications, such as the UDID or IMEI number, are not used as authentication tokens. Verify that secret keys, API tokens, or passwords are dynamically generated in mobile applications.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -414,8 +414,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que el cliente móvil utilice métodos de autenticación seguros.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the mobile client uses secure authentication methods.",
             "So that": ""
         }
     },
@@ -425,7 +425,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "La aplicación solicita permisos mínimos para la funcionalidad y los recursos requeridos.",
+        "Acceptance Criteria": "The application requests minimum permissions for the required functionality and resources.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -434,8 +434,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que el cliente móvil observe el principio de \"mínimo privilegio\".",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the mobile client observes the principle of 'least privilege'.",
             "So that": ""
         }
     },
@@ -445,7 +445,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "El código sensible de la aplicación se presenta de forma impredecible en la memoria (por ejemplo, ASLR) y existen técnicas anti-depuración suficientes para disuadir o retrasar a los atacantes potenciales de inyectar depuradores en la aplicación móvil (por ejemplo, GDB). La aplicación no exporta actividades, intenciones o proveedores de contenido confidenciales para que otras aplicaciones móviles en el mismo dispositivo las exploten. La información confidencial mantenida en la memoria se sobrescribe con ceros tan pronto como ya no se requiera, para mitigar los ataques de volcado de memoria. Verificar que la aplicación valida la entrada a las actividades, intenciones o proveedores de contenido exportados.",
+        "Acceptance Criteria": "Sensitive application code is presented unpredictably in memory (e.g., ASLR) and sufficient anti-debugging techniques exist to deter or delay potential attackers from injecting debuggers into the mobile application (e.g., GDB). The application does not export activities, intents, or sensitive content providers for other mobile applications on the same device to exploit. Sensitive information held in memory is overwritten with zeros as soon as it is no longer required, to mitigate memory dump attacks. Verify that the application validates input to exported activities, intents, or content providers.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -454,8 +454,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que el cliente móvil utilice técnicas de codificación seguras.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the mobile client uses secure coding techniques.",
             "So that": ""
         }
     },
@@ -465,7 +465,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "El acceso a las funciones de administración y gestión dentro de la aplicación del servicio web está limitado a los administradores del servicio web. Verificar el uso de autenticación y autorización basadas en sesiones. Evitar el uso de \"claves API\" estáticas y similares.",
+        "Acceptance Criteria": "Access to administration and management functions within the web service application is limited to web service administrators. Verify the use of session-based authentication and authorization. Avoid the use of static 'API keys' and the like.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -474,9 +474,9 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que el servicio web implemente una autenticación",
-            "So that": "autorización y gestión de sesiones adecuadas."
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the web service implements proper authentication,",
+            "So that": "authorization, and session management."
         }
     },
     {
@@ -485,7 +485,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Se utiliza el mismo estilo de codificación entre el cliente y el servidor. Confirmar que el esquema XML o JSON está en su lugar y se verifica antes de aceptar la entrada. Asegurarse de que toda la entrada esté limitada a un límite de tamaño apropiado. Un servicio REST comprueba explícitamente el Content-Type entrante para que sea el esperado, como application/xml o application/json.",
+        "Acceptance Criteria": "The same coding style is used between the client and server. Confirm that the XML or JSON schema is in place and is verified before accepting input. Ensure that all input is limited to an appropriate size limit. A REST service explicitly checks the incoming Content-Type to be as expected, such as application/xml or application/json.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -494,8 +494,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que el servicio web valide la entrada.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the web service validates input.",
             "So that": ""
         }
     },
@@ -505,7 +505,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Verificar que los servicios web basados en SOAP cumplan con el perfil básico de interoperabilidad de servicios web (WS-I) como mínimo. Esto esencialmente significa cifrado TLS. Las cargas útiles de los mensajes se firman para garantizar un transporte confiable entre el cliente y el servicio, utilizando JSON Web Signing o WS-Security para solicitudes SOAP. Verificar que no existan rutas de acceso alternativas y menos seguras.",
+        "Acceptance Criteria": "Verify that SOAP-based web services comply with the Web Services Interoperability Basic Profile (WS-I) as a minimum. This essentially means TLS encryption. Message payloads are signed to ensure reliable transport between the client and the service, using JSON Web Signing or WS-Security for SOAP requests. Verify that there are no alternative and less secure access paths.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -514,8 +514,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que el servicio web garantice la confidencialidad e integridad de la comunicación.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the web service guarantees the confidentiality and integrity of communication.",
             "So that": ""
         }
     },
@@ -525,7 +525,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Usar uno o más de los siguientes: verificaciones ORIGIN, patrón de cookie de doble envío, nonces CSRF y verificaciones de referente.",
+        "Acceptance Criteria": "Use one or more of the following: ORIGIN checks, double-send cookie pattern, CSRF nonces, and referer checks.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -534,8 +534,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que un servicio REST esté protegido contra ataques Cross-Site Request Forgery (CSRF).",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that a REST service is protected against Cross-Site Request Forgery (CSRF) attacks.",
             "So that": ""
         }
     },
@@ -545,7 +545,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Todos los componentes deben estar actualizados con las configuraciones y versiones de seguridad adecuadas. Verificar que los componentes de terceros provengan de repositorios confiables.",
+        "Acceptance Criteria": "All components should be up to date with appropriate security configurations and versions. Verify that third-party components come from trusted repositories.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -554,8 +554,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que todos los componentes de la aplicación tengan bibliotecas y plataformas actualizadas.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that all application components have updated libraries and platforms.",
             "So that": ""
         }
     },
@@ -565,7 +565,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Eliminar configuraciones y carpetas innecesarias como aplicaciones de ejemplo, documentación de la plataforma y usuarios predeterminados o de ejemplo. Las comunicaciones entre componentes, como entre el servidor de la aplicación y el servidor de la base de datos, deben estar cifradas, especialmente cuando los",
+        "Acceptance Criteria": "Remove unnecessary configurations and folders such as example applications, platform documentation, and default or sample users. Communications between components, such as between the application server and the database server, must be encrypted, especially when",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -574,8 +574,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que la configuración de la aplicación sea \"segura por defecto\".",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the application configuration is 'secure by default'.",
             "So that": ""
         }
     },
@@ -585,7 +585,7 @@
         "Assigned To": "",
         "Description": "",
         "Affected Roles": "",
-        "Acceptance Criteria": "Validar que las implementaciones de la aplicación estén adecuadamente sandboxeadas, en contenedores o aisladas para retrasar y disuadir a los atacantes de atacar otras aplicaciones. Verificar que los procesos de creación e implementación de la aplicación se realicen de manera segura. Confirmar que todos los activos de la aplicación están alojados por la aplicación en lugar de en un CDN o proveedor externo, incluyendo; bibliotecas JavaScript, hojas de estilo CSS y fuentes web.",
+        "Acceptance Criteria": "Validate that application deployments are adequately sandboxed, containerized, or isolated to delay and deter attackers from attacking other applications. Verify that application creation and deployment processes are performed securely. Confirm that all application assets are hosted by the application rather than a CDN or external provider, including; JavaScript libraries, CSS stylesheets, and web fonts.",
         "Status": "",
         "Risk": "",
         "Release": "",
@@ -594,8 +594,8 @@
         "System ID": "",
         "External ID": "",
         "Story": {
-            "As a": "Como Cliente de una empresa de software",
-            "I want to": "quiero que la aplicación esté protegida y reforzada por defecto para que los cambios realizados por el usuario no expongan vulnerabilidades de seguridad o fallas en los sistemas subyacentes.",
+            "As a": "As a Customer of a software company",
+            "I want to": "ensure that the application is protected and hardened by default so that changes made by the user do not expose security vulnerabilities or failures in underlying systems.",
             "So that": ""
         }
     }
