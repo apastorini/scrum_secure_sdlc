@@ -1,0 +1,163 @@
+[
+    {
+        "Name": "Autorización a Nivel de Objeto Rota",
+        "ID": 1,
+        "Description": "Las APIs tienden a exponer endpoints que manejan identificadores de objetos, creando una amplia superficie de ataque para problemas de Control de Acceso a Nivel de Objeto. Se deben considerar verificaciones de autorización a nivel de objeto en cada función que acceda a una fuente de datos utilizando una entrada del usuario.",
+        "Acceptance Criteria": [
+            "Verificar que las verificaciones de autorización a nivel de objeto estén implementadas para cada función que acceda a fuentes de datos utilizando entradas del usuario.",
+            "Asegurarse de que el acceso esté restringido solo a usuarios autorizados."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "Riesgo de Seguridad API",
+        "Story": {
+            "As a": "Como Cliente de una empresa de software",
+            "I want to": "asegurarme de que los datos a los que accedo estén debidamente protegidos a nivel de objeto.",
+            "So that": "solo los usuarios autorizados puedan acceder o modificar los datos relacionados con mis recursos."
+        }
+    },
+    {
+        "Name": "Autenticación Rota",
+        "ID": 2,
+        "Description": "Los mecanismos de autenticación a menudo se implementan incorrectamente, permitiendo a los atacantes explotar fallos de autenticación. Comprometer los tokens de autenticación de un sistema o explotar fallos permite a los atacantes suplantar a otros usuarios.",
+        "Acceptance Criteria": [
+            "Asegurarse de que existan mecanismos de autenticación fuertes, incluyendo la expiración y regeneración de tokens.",
+            "Verificar que se apliquen políticas de contraseñas.",
+            "Implementar autenticación de múltiples factores."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "Riesgo de Seguridad API",
+        "Story": {
+            "As a": "Como Cliente de una empresa de software",
+            "I want to": "tener la certeza de que mi autenticación es segura y que mis credenciales no pueden ser fácilmente comprometidas.",
+            "So that": "no haya riesgo de que un atacante pueda suplantar mi identidad."
+        }
+    },
+    {
+        "Name": "Autorización a Nivel de Propiedad de Objeto Rota",
+        "ID": 3,
+        "Description": "Los ataques que explotan las propiedades de los objetos de una API para acceder sin autorización. Las verificaciones de autorización a nivel de propiedad de objeto deben asegurar que los usuarios solo puedan acceder o modificar propiedades para las que tienen permisos.",
+        "Acceptance Criteria": [
+            "Implementar verificaciones de autorización en las propiedades de los objetos.",
+            "Verificar que los usuarios solo puedan acceder o modificar las propiedades para las que tienen permisos explícitos."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "Riesgo de Seguridad API",
+        "Story": {
+            "As a": "Como Cliente de una empresa de software",
+            "I want to": "asegurarme de que solo puedo acceder o modificar las propiedades de los objetos para las que tengo permisos específicos.",
+            "So that": "se mantenga la integridad de los datos y se eviten los accesos no autorizados."
+        }
+    },
+    {
+        "Name": "Falta de Recursos y Limitación de Tasas",
+        "ID": 4,
+        "Description": "Las APIs a menudo no tienen medidas de limitación de recursos y tasas en su lugar, lo que permite ataques de DoS y causa degradación del rendimiento.",
+        "Acceptance Criteria": [
+            "Implementar limitación de tasas para controlar el número de solicitudes por usuario en un período de tiempo.",
+            "Asegurarse de que el consumo de recursos sea monitoreado y limitado para prevenir ataques de DoS."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "Riesgo de Seguridad API",
+        "Story": {
+            "As a": "Como Cliente de una empresa de software",
+            "I want to": "asegurarme de que los servicios estén disponibles sin interrupciones.",
+            "So that": "mi experiencia de usuario no se vea afectada por intentos de saturación o uso excesivo de recursos."
+        }
+    },
+    {
+        "Name": "Autorización a Nivel de Función Rota",
+        "ID": 5,
+        "Description": "Los atacantes ganan acceso a funciones que no están destinadas a su rol, explotando la falta de controles de acceso a nivel de función o controles inadecuados.",
+        "Acceptance Criteria": [
+            "Asegurarse de que las verificaciones de autorización a nivel de función estén implementadas y verificadas.",
+            "El acceso a las funciones debe estar restringido a usuarios con los permisos apropiados."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "Riesgo de Seguridad API",
+        "Story": {
+            "As a": "Como Cliente de una empresa de software",
+            "I want to": "tener las funciones de la aplicación limitadas a mi rol específico.",
+            "So that": "no pueda acceder a funciones que no son relevantes o seguras para mi rol."
+        }
+    },
+    {
+        "Name": "Asignación Masiva",
+        "ID": 6,
+        "Description": "Los endpoints de API que son vulnerables a la asignación masiva permiten a los atacantes modificar propiedades de objetos adivinando propiedades de objetos.",
+        "Acceptance Criteria": [
+            "Deshabilitar la asignación masiva o implementar una lista blanca para las propiedades de objetos que pueden ser actualizadas.",
+            "Asegurarse de que solo las propiedades explícitamente permitidas puedan ser modificadas."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "Riesgo de Seguridad API",
+        "Story": {
+            "As a": "Como Cliente de una empresa de software",
+            "I want to": "asegurarme de que solo se puedan modificar propiedades específicas a través de la API.",
+            "So that": "los atacantes no puedan realizar cambios no autorizados en los objetos."
+        }
+    },
+    {
+        "Name": "Mala Configuración de Seguridad",
+        "ID": 7,
+        "Description": "Las configuraciones predeterminadas inseguras, configuraciones incompletas o archivos sin protección pueden llevar a debilidades de seguridad no intencionadas.",
+        "Acceptance Criteria": [
+            "Asegurarse de que las configuraciones se establezcan de manera segura, se desactiven las características innecesarias y se apliquen parches de seguridad regularmente.",
+            "Verificar que los mensajes de error no filtren información sensible."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "Riesgo de Seguridad API",
+        "Story": {
+            "As a": "Como Cliente de una empresa de software",
+            "I want to": "tener una configuración segura y robusta por defecto.",
+            "So that": "mi información no sea vulnerable a errores de configuración o malas prácticas."
+        }
+    },
+    {
+        "Name": "Inyección",
+        "ID": 8,
+        "Description": "Los endpoints de API vulnerables a ataques de inyección, como SQL, NoSQL, inyección de comandos, etc., pueden permitir a los atacantes ejecutar comandos arbitrarios o acceder a datos sin autorización.",
+        "Acceptance Criteria": [
+            "Implementar validación y sanitización de entradas para todas las entradas de usuario.",
+            "Usar consultas parametrizadas para prevenir ataques de inyección."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "Riesgo de Seguridad API",
+        "Story": {
+            "As a": "Como Cliente de una empresa de software",
+            "I want to": "asegurarme de que todas las entradas de usuario sean validadas y no puedan ser explotadas para ataques de inyección.",
+            "So that": "mi aplicación no sea vulnerable a ataques que comprometan la seguridad de los datos."
+        }
+    },
+    {
+        "Name": "Mala Gestión de Activos",
+        "ID": 9,
+        "Description": "La falta de una gestión adecuada de activos puede llevar a la exposición de APIs obsoletas o no soportadas, aumentando el riesgo de vulnerabilidades.",
+        "Acceptance Criteria": [
+            "Mantener un inventario actualizado de las APIs.",
+            "Asegurarse de que las APIs obsoletas se retiren adecuadamente y que todos los endpoints estén documentados."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "Riesgo de Seguridad API",
+        "Story": {
+            "As a": "Como Cliente de una empresa de software",
+            "I want to": "tener garantías de que todas las APIs en uso son seguras y están actualizadas.",
+            "So that": "no haya riesgos de seguridad asociados con versiones obsoletas o no soportadas."
+        }
+    },
+    {
+        "Name": "Registro y Monitoreo Insuficientes",
+        "ID": 10,
+        "Description": "Sin un registro y monitoreo adecuados, las actividades sospechosas pueden pasar desapercibidas, dificultando la detección y respuesta a brechas de seguridad.",
+        "Acceptance Criteria": [
+            "Implementar un registro exhaustivo de eventos relevantes para la seguridad.",
+            "Asegurarse de que el monitoreo esté en su lugar para detectar y responder a actividades sospechosas de manera oportuna."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "Riesgo de Seguridad API",
+        "Story": {
+            "As a": "Como Cliente de una empresa de software",
+            "I want to": "asegurarme de que todas las actividades relevantes para la seguridad se registren y monitoreen.",
+            "So that": "se puedan detectar y gestionar posibles brechas de seguridad de manera oportuna."
+        }
+    }
+]
