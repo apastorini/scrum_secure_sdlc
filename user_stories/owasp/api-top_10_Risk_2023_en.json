@@ -1,0 +1,163 @@
+[
+    {
+        "Name": "Broken Object Level Authorization",
+        "ID": 1,
+        "Description": "APIs tend to expose endpoints that handle object identifiers, creating a wide attack surface Level Access Control issue. Object-level authorization checks should be considered in every function that accesses a data source using input from the user.",
+        "Acceptance Criteria": [
+            "Verify that object-level authorization checks are implemented for every function that accesses data sources using user input.",
+            "Ensure access is restricted to authorized users only."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "API Security Risk",
+        "Story": {
+            "As a": "As a Software company Customer",
+            "I want to": "ensure that the data I access is properly protected at the object level.",
+            "So that": "only authorized users can access or modify data related to my resources."
+        }
+    },
+    {
+        "Name": "Broken Authentication",
+        "ID": 2,
+        "Description": "Authentication mechanisms are often implemented incorrectly, allowing attackers to exploit authentication flaws. Compromising a system's authentication tokens or exploiting flaws allow attackers to impersonate other users.",
+        "Acceptance Criteria": [
+            "Ensure strong authentication mechanisms are in place, including token expiration and regeneration.",
+            "Verify that password policies are enforced.",
+            "Implement multi-factor authentication."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "API Security Risk",
+        "Story": {
+            "As a": "As a Software company Customer",
+            "I want to": "be assured that my authentication is secure and that my credentials cannot be easily compromised.",
+            "So that": "there is no risk of an attacker impersonating me."
+        }
+    },
+    {
+        "Name": "Broken Object Property Level Authorization",
+        "ID": 3,
+        "Description": "Attacks that exploit an API’s object properties for unauthorized access. Object property level authorization checks should ensure that users can only access or modify properties they have permissions for.",
+        "Acceptance Criteria": [
+            "Implement authorization checks on object properties.",
+            "Verify that users can only access or modify properties they have explicit permissions for."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "API Security Risk",
+        "Story": {
+            "As a": "As a Software company Customer",
+            "I want to": "ensure that I can only access or modify the object properties for which I have specific permissions.",
+            "So that": "data integrity is maintained and unauthorized access is prevented."
+        }
+    },
+    {
+        "Name": "Lack of Resources & Rate Limiting",
+        "ID": 4,
+        "Description": "APIs often do not have resource and rate limiting measures in place, allowing for DoS attacks and causing performance degradation.",
+        "Acceptance Criteria": [
+            "Implement rate limiting to control the number of requests per user within a timeframe.",
+            "Ensure resource consumption is monitored and limited to prevent DoS attacks."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "API Security Risk",
+        "Story": {
+            "As a": "As a Software company Customer",
+            "I want to": "ensure the availability of services without interruptions.",
+            "So that": "my user experience is not affected by saturation attempts or excessive resource usage."
+        }
+    },
+    {
+        "Name": "Broken Function Level Authorization",
+        "ID": 5,
+        "Description": "Attackers gain access to functions that are not intended for their role, by exploiting missing or improper function level access controls.",
+        "Acceptance Criteria": [
+            "Ensure that function-level authorization checks are implemented and verified.",
+            "Access to functions should be restricted to users with appropriate permissions."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "API Security Risk",
+        "Story": {
+            "As a": "As a Software company Customer",
+            "I want to": "have application functions limited to my specific role.",
+            "So that": "I cannot access functions that are not relevant or safe for my role."
+        }
+    },
+    {
+        "Name": "Mass Assignment",
+        "ID": 6,
+        "Description": "API endpoints that are vulnerable to mass assignment allow attackers to modify object properties by guessing object properties.",
+        "Acceptance Criteria": [
+            "Disable mass assignment or implement a whitelist for object properties that can be updated.",
+            "Ensure only explicitly allowed properties can be modified."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "API Security Risk",
+        "Story": {
+            "As a": "As a Software company Customer",
+            "I want to": "ensure that only specific properties can be modified through the API.",
+            "So that": "attackers cannot make unauthorized changes to objects."
+        }
+    },
+    {
+        "Name": "Security Misconfiguration",
+        "ID": 7,
+        "Description": "Insecure default configurations, incomplete configurations, or unprotected files can lead to unintended security weaknesses.",
+        "Acceptance Criteria": [
+            "Ensure configurations are securely set, unnecessary features are disabled, and security patches are applied regularly.",
+            "Verify that error messages do not leak sensitive information."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "API Security Risk",
+        "Story": {
+            "As a": "As a Software company Customer",
+            "I want to": "have a secure and robust default configuration.",
+            "So that": "my information is not vulnerable to configuration errors or bad practices."
+        }
+    },
+    {
+        "Name": "Injection",
+        "ID": 8,
+        "Description": "API endpoints vulnerable to injection attacks, such as SQL, NoSQL, command injection, etc., can allow attackers to execute arbitrary commands or access data without authorization.",
+        "Acceptance Criteria": [
+            "Implement input validation and sanitization for all user inputs.",
+            "Use parameterized queries to prevent injection attacks."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "API Security Risk",
+        "Story": {
+            "As a": "As a Software company Customer",
+            "I want to": "ensure that all user inputs are validated and cannot be exploited for injection attacks.",
+            "So that": "my application is not vulnerable to attacks that compromise data security."
+        }
+    },
+    {
+        "Name": "Improper Assets Management",
+        "ID": 9,
+        "Description": "Lack of proper assets management can lead to exposure of outdated or unsupported APIs, increasing the risk of vulnerabilities.",
+        "Acceptance Criteria": [
+            "Maintain an up-to-date inventory of APIs.",
+            "Ensure deprecated APIs are properly retired and all endpoints are documented."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "API Security Risk",
+        "Story": {
+            "As a": "As a Software company Customer",
+            "I want to": "ensure that all APIs in use are secure and up-to-date.",
+            "So that": "there are no security risks associated with outdated or unsupported versions."
+        }
+    },
+    {
+        "Name": "Insufficient Logging & Monitoring",
+        "ID": 10,
+        "Description": "Without proper logging and monitoring, suspicious activities can go unnoticed, making it difficult to detect and respond to breaches.",
+        "Acceptance Criteria": [
+            "Implement comprehensive logging of security-relevant events.",
+            "Ensure monitoring is in place to detect and respond to suspicious activities promptly."
+        ],
+        "Source": "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "Tags": "API Security Risk",
+        "Story": {
+            "As a": "As a Software company Customer",
+            "I want to": "ensure that all security-relevant activities are logged and monitored.",
+            "So that": "potential security breaches can be detected and managed in a timely manner."
+        }
+    }
+]
