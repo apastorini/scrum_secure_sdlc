@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "User Stories Schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "Name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "ID": {
+        "type": "integer"
+      },
+      "Assigned To": {
+        "type": "string"
+      },
+      "Description": {
+        "type": "string",
+        "minLength": 1
+      },
+      "Affected Roles": {
+        "type": "string"
+      },
+      "Acceptance Criteria": {
+        "oneOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ]
+      },
+      "Status": {
+        "type": "string"
+      },
+      "Risk": {
+        "type": "string"
+      },
+      "Release": {
+        "type": "string"
+      },
+      "Tags": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "Parent Requirement": {
+        "type": "string"
+      },
+      "System ID": {
+        "type": "string"
+      },
+      "External ID": {
+        "type": "string"
+      },
+      "Story": {
+        "type": "object",
+        "properties": {
+          "As a": {
+            "type": "string",
+            "minLength": 1
+          },
+          "I want to": {
+            "type": "string",
+            "minLength": 1
+          },
+          "So that": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "As a",
+          "I want to"
+        ]
+      },
+      "Story Type": {
+        "type": "string",
+        "enum": ["Epic", "Task", "User Story", "Poc"]
+      },
+      "Associated Child Story IDs": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      },
+      "Associated Parent Story IDs": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      },
+      "Assigned Responsible IDs": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "format": "email"
+        }
+      },
+      "Start Date": {
+        "type": "string",
+        "format": "date"
+      },
+      "End Date": {
+        "type": "string",
+        "format": "date"
+      },
+      "Board Column Name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "Board ID": {
+        "type": "integer"
+      },
+      "Project ID": {
+        "type": "integer"
+      },
+      "Card ID": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "Name",
+      "ID",
+      "Story",
+      "Acceptance Criteria"
+    ]
+  }
+}
